@@ -1,0 +1,53 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/thomas-lowry/figma-plugin-ds/dist/figma-plugin-ds.css">
+  <style>
+    body {
+      padding: 1rem;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="row">
+    <button id="showToastButton" class='button button--primary'>Say hello</button>
+    <div class="icon-button" id="addBar">
+      <div class="icon icon--plus"></div>
+    </div>
+
+    <div class="icon-button" id="removeBar">
+      <div class="icon icon--minus"></div>
+    </div>
+    <button id="closeButton" class='button button--primary-destructive'>Close</button>
+  </div>
+  <script>
+    const sendEvent = (data) => {
+      parent.postMessage({ pluginMessage: data }, "*");
+    }
+    const bindEleAndSend = (id, data) => {
+      const $ele = document.getElementById(id);
+      $ele.onclick = () => {
+        sendEvent(data)
+      };
+    }
+
+    bindEleAndSend("showToastButton", { type: "showToast" })
+
+    bindEleAndSend("closeButton", { type: "closeButton" })
+
+    bindEleAndSend("addBar", { type: "addBar" })
+
+    bindEleAndSend("removeBar", { type: "removeBar" })
+  </script>
+</body>
+
+</html>

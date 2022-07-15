@@ -1,0 +1,13 @@
+{
+  "name": "bench-chart",
+  "id": "1129622583488497926",
+  "api": "1.0.0",
+  "main": "code.js",
+  "editorType": [
+    "figma",
+    "figjam"
+  ],
+  "containsWidget": true,
+  "widgetApi": "1.0.0",
+  "ui": "ui.html"
+}
